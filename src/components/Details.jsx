@@ -1,4 +1,4 @@
-import React, { useState, useEffect, use } from "react";
+import React, { useState, useEffect } from "react";
 import "./Details.css";
 
 function Details({ info }) {
@@ -66,34 +66,21 @@ function Details({ info }) {
 
   return (
     <div className="details">
-      <h2>{userDetails.name}</h2>
+      <div className="details-header">
+        <img className="avatar" src={userDetails.avatar} alt={`${userDetails.name} avatar`} />
+        <div>
+          <h2>{userDetails.name}</h2>
+          <p className="position">{userDetails.details?.position}</p>
+        </div>
+      </div>
       <div className="details-content">
         <div className="detail-item">
-          <span className="detail-label">Email:</span>
-          <span className="detail-value">{userDetails.email}</span>
-        </div>
-        <div className="detail-item">
-          <span className="detail-label">Телефон:</span>
-          <span className="detail-value">{userDetails.phone}</span>
+          <span className="detail-label">Город:</span>
+          <span className="detail-value">{userDetails.details?.city}</span>
         </div>
         <div className="detail-item">
           <span className="detail-label">Компания:</span>
-          <span className="detail-value">{userDetails.company?.name}</span>
-        </div>
-        <div className="detail-item">
-          <span className="detail-label">Адрес:</span>
-          <span className="detail-value">
-            {userDetails.address && (
-              <>
-                {userDetails.address.city}, {userDetails.address.street},{" "}
-                {userDetails.address.suite}
-              </>
-            )}
-          </span>
-        </div>
-        <div className="detail-item">
-          <span className="detail-label">Веб-сайт:</span>
-          <span className="detail-value">{userDetails.website}</span>
+          <span className="detail-value">{userDetails.details?.company}</span>
         </div>
       </div>
     </div>
